@@ -20,6 +20,31 @@ Mining User-aware Multi-relations for Fake News Detection in Large Scale Online 
 
 ## Datasets
 
+To show the input formats of datasets, we give an example dataset "toy" in /data/ directory. The toy dataset is just used to show the input format, it's not suitable for experiments. The structure of the /data/toy/ directory should be as follows.
+
+```
+data/
+│
+└───toy/
+    │   class_map.json
+    │   post_graph.txt
+    │   text_adj_full.npz
+    └───1/
+        │    text_adj_train.npz
+        │    text_role.json
+        │    user_adj_train.npz
+        └─── user_role.json
+```
+* `class_map.json`: 
+* `post_graph.txt`:
+* `text_adj_full.npz`:
+* `1`:
+* `text_adj_train.npz`:
+* `text_role.json`:
+* `user_adj_train.npz`:
+* `user_role.json`:
+
+
 
 ## Cython Implemented Parallel Graph Sampler
 
