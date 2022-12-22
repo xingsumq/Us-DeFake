@@ -20,7 +20,7 @@ Mining User-aware Multi-relations for Fake News Detection in Large Scale Online 
 
 ## Datasets
 
-To show the input formats of datasets, we give an example dataset "toy" in /data/ directory. The toy dataset is just used to show the input format, it's not suitable for experiments. The structure of the /data/toy/ directory should be as follows.
+To show the input formats of datasets, we give an example dataset "toy" in /data/ directory. The toy dataset is just used to show the input format, it's not suitable for experiments. The structure of the /data/toy/ directory should be as follows.[Download Dataset "toy"](https://drive.google.com/drive/folders/18IwOQ7hc0S6QaOQxdp7AIHhZezzMZ0CU?usp=sharing)
 
 ```
 data/
@@ -29,20 +29,30 @@ data/
     │   class_map.json
     │   post_graph.txt
     │   text_adj_full.npz
+    │   text_feats.npy
+    │   user_adj_full.npz
+    │   user_feats.npy
+    │   user_graph
+    │   user_post_graph.txt
     └───1/
         │    text_adj_train.npz
         │    text_role.json
         │    user_adj_train.npz
         └─── user_role.json
 ```
-* `class_map.json`: 
-* `post_graph.txt`:
-* `text_adj_full.npz`:
-* `1`:
-* `text_adj_train.npz`:
-* `text_role.json`:
-* `user_adj_train.npz`:
-* `user_role.json`:
+* `class_map.json`: a dictionary of length N. Each key is a node index, and each value is 0 (real news) or 1 (fake news).
+* `post_graph.txt`: propagation graph of news. 
+* `text_adj_full.npz`: a sparse matrix in CSR format of `post_graph.txt`, stored as a `scipy.sparse.csr_matrix`. The shape is N by N. Non-zeros in the matrix correspond to all the edges in the full graph. It doesn't matter if the two nodes connected by an edge are training, validation or test nodes. 
+* `text_feats.npy`: attributes of news.
+* `user_adj_full.npz`: a sparse matrix in CSR format of `user_graph.txt`, stored as a `scipy.sparse.csr_matrix`. The shape is M by M. Non-zeros in the matrix correspond to all the edges in the full graph. It doesn't matter if the two nodes connected by an edge are training, validation or test nodes.
+* `user_feats.npy`: attributes of users.
+* `user_graph.txt`: interaction graph of users.
+* `user_post_graph.txt`: posting graph of news and users.  
+* `1`: 1st fold of k-fold cross validation. 
+* `text_adj_train.npz`: a sparse matrix in CSR format of training news, stored as a `scipy.sparse.csr_matrix`. The shape is also N by N. However, non-zeros in the matrix only correspond to edges connecting two training nodes. The graph sampler only picks nodes/edges from this `text_adj_train`, not `text_adj_full`. Therefore, neither the attribute information nor the structural information are revealed during training. Also, note that only aN rows and cols of `text_adj_train` contains non-zeros. For unweighted graph, the non-zeros are all 1.
+* `text_role.json`: a dictionary of four keys. Key `'tr'` corresponds to the list of all training node indices. Key `'va'` corresponds to the list of all validation node indices. Key `'te'` corresponds to the list of all test node indices. Note that in the raw data, nodes may have string-type ID. Key `'source news'` corresponds to the source news. You would need to re-assign numerical ID (0 to N-1) to the nodes, so that you can index into the matrices of adj, features and class labels.
+* `user_adj_train.npz`: a sparse matrix in CSR format of training users, stored as a `scipy.sparse.csr_matrix`. The shape is also M by M. However, non-zeros in the matrix only correspond to edges connecting two training nodes. The graph sampler only picks nodes/edges from this `user_adj_train`, not `user_adj_full`. Therefore, neither the attribute information nor the structural information are revealed during training. Also, note that only aN rows and cols of `user_adj_train` contains non-zeros. For unweighted graph, the non-zeros are all 1.
+* `user_role.json`: a dictionary of four keys. Key `'tr'` corresponds to the list of all training node indices. Key `'va'` corresponds to the list of all validation node indices. Key `'te'` corresponds to the list of all test node indices. Note that in the raw data, nodes may have string-type ID. Key `'source news'` corresponds to the source news. You would need to re-assign numerical ID (0 to N-1) to the nodes, so that you can index into the matrices of adj, features and class labels.
 
 
 
