@@ -20,7 +20,7 @@ Mining User-aware Multi-relations for Fake News Detection in Large Scale Online 
 
 ## Datasets
 
-To show the input formats of datasets, we give an example dataset "toy" in /data/ directory. The toy dataset is just used to show the input format, it's not suitable for experiments. The structure of the /data/toy/ directory should be as follows.[Download Dataset "toy"](https://drive.google.com/drive/folders/18IwOQ7hc0S6QaOQxdp7AIHhZezzMZ0CU?usp=sharing)
+To show the input formats of datasets, we give an example dataset "toy" in /data/ directory. The toy dataset is just used to show the input format, it's not suitable for experiments. The structure of the /data/toy/ directory should be as follows.[Download Example Dataset](https://drive.google.com/drive/folders/18IwOQ7hc0S6QaOQxdp7AIHhZezzMZ0CU?usp=sharing)
 
 ```
 data/
@@ -65,8 +65,37 @@ We have a cython module which need compilation before training can start. Compil
 
 ## Training Configuration
 
+The hyperparameters needed in training can be set via the configuration file: `./train_config/<dataset_name>.yml`.
+
 
 ## Run Training
 
+First of all, please compile cython samplers (see above). 
+We suggest looking through the available command line arguments defined in `./graphsaint/globals.py`. 
+
+To run the code on CPU
+
+```
+python -m train --data_prefix ./data/<dataset_name> --fold <fold_k> --train_config ./train_config/<dataset_name>.yml --gpu 0
+```
+
+
+To run the code on GPU
+
+```
+python -m train --data_prefix ./data/<dataset_name> --fold <fold_k> --train_config ./train_config/<dataset_name>.yml --gpu 0
+```
+
+For example, to run dataset 'toy' on CPU:
+```
+python -m train --data_prefix ./data/toy --fold 1 --train_config ./train_config/toy.yml --gpu -1
+```
+
 
 ## Citation & Acknowledgement
+
+We thank Hanqing Zeng et al. proposed the GraphSAINT [paper](https://arxiv.org/abs/1907.04931) and released the [code](https://github.com/GraphSAINT/GraphSAINT). 
+
+If you find this method helpful for your research, please cite this paper. 
+
+
