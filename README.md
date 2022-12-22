@@ -76,7 +76,7 @@ We suggest looking through the available command line arguments defined in `./ut
 To run the code on CPU
 
 ```
-python -m train --data_prefix ./data/<dataset_name> --fold <fold_k> --train_config ./train_config/<dataset_name>.yml --gpu 0
+python -m train --data_prefix ./data/<dataset_name> --fold <fold_k> --train_config ./train_config/<dataset_name>.yml --gpu -1
 ```
 
 
