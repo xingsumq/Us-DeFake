@@ -71,7 +71,7 @@ The hyperparameters needed in training can be set via the configuration file: `.
 ## Run Training
 
 First of all, please compile cython samplers (see above). 
-We suggest looking through the available command line arguments defined in `./utilty/globals.py`. 
+We suggest looking through the available command line arguments defined in `./utility/globals.py`. 
 
 To run the code on CPU
 
