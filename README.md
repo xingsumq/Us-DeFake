@@ -94,7 +94,7 @@ python -m train --data_prefix ./data/toy --fold 1 --train_config ./train_config/
 
 ## Citation & Acknowledgement
 
-We thank Hanqing Zeng et al. proposed the GraphSAINT [paper](https://arxiv.org/abs/1907.04931) and released the [code](https://github.com/GraphSAINT/GraphSAINT). 
+We thank Hanqing Zeng et al. proposed the GraphSAINT [paper](https://arxiv.org/abs/1907.04931) and released the [code](https://github.com/GraphSAINT/GraphSAINT). Us-DeFake employs GraphSAINT to learn representations of news and users in large scale online social networks. 
 
 If you find this method helpful for your research, please cite this paper. 
 
