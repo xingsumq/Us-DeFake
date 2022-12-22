@@ -20,9 +20,16 @@ Mining User-aware Multi-relations for Fake News Detection in Large Scale Online 
 
 ## Datasets
 
+
 ## Cython Implemented Parallel Graph Sampler
 
+We have a cython module which need compilation before training can start. Compile the module by running the following from the root directory:
+
+`python graphsaint/setup.py build_ext --inplace`
+
+
 ## Training Configuration
+
 
 ## Run Training
 
