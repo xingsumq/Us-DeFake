@@ -1,4 +1,4 @@
-# Mining User-aware Multi-Relations for Fake News Detection in Large Scale Online Social Networks
+# Mining User-aware Multi-relations for Fake News Detection in Large Scale Online Social Networks
 
 This repository is the official PyTorch implementation of Us-DeFake in the paper:
 
