@@ -98,4 +98,13 @@ We thank Hanqing Zeng et al. proposed the GraphSAINT [paper](https://arxiv.org/a
 
 If you find this method helpful for your research, please cite our paper. 
 
+```
+@article{su2022mining,
+  title={Mining User-aware Multi-relations for Fake News Detection in Large Scale Online Social Networks},
+  author={Su, Xing and Yang, Jian and Wu, Jia and Zhang, Yuchen},
+  journal={arXiv preprint arXiv:2212.10778},
+  year={2022}
+}
+```
+
 
